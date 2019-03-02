@@ -3,8 +3,8 @@ var socket = require('socket.io');
 
 //App setup
 var app = express();
-var server = app.listen(4000,function(){
-    console.log("Listen to request on port 4000");
+var server = app.listen(process.env.port || 3000,function(){
+    console.log("Listen to request on port 3000");
     
 });
 
@@ -18,6 +18,8 @@ io.on('connection',function(socket){
     console.log("Made socket connection ",socket.id);
 
     socket.on('chat',function(data){
+        console.log(data);
+        
         io.sockets.emit('chat',data);
     });
 
