@@ -18,9 +18,16 @@ io.on('connection',function(socket){
     console.log("Made socket connection ",socket.id);
 
     socket.on('chat',function(data){
-        console.log(data);
-        
+        console.log(data);    
         io.sockets.emit('chat',data);
+    });
+
+    
+    socket.on('disconnect', function() {
+        console.log( 'user has left ')
+        socket.broadcast.emit( "userdisconnect" ,'user has left')
+    
+    
     });
 
     socket.on('typing',function(data){
