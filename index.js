@@ -17,6 +17,11 @@ var io = socket(server);
 io.on('connection',function(socket){
     console.log("Made socket connection ",socket.id);
 
+    socket.on('onconnect',function(data){
+        console.log(data);    
+        io.sockets.emit('onconnect',data.handle+" Connected!");
+    });
+
     socket.on('chat',function(data){
         console.log(data);    
         io.sockets.emit('chat',data);
