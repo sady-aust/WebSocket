@@ -35,8 +35,8 @@ io.on('connection',function(socket){
 
     
     socket.on('disconnect', function(data) {
-        console.log( 'user has left ')
-        io.sockets.emit( "disconnect" ,data.handle+' has left')
+        console.log( 'user has left ');
+        io.sockets.emit( "disconnect" ,' has left')
     
     
     });
