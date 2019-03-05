@@ -24,7 +24,10 @@ io.on('connection',function(socket){
 
     socket.on('onconnect',function(data){
        /// console.log(data);    
-        io.sockets.emit('onconnect',socket.id);
+        io.sockets.emit('onconnect',{
+            connectionid:socket.id,
+            connected:true
+        });
 
     });
 
