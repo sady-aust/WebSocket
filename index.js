@@ -53,9 +53,13 @@ io.on('connection',function(socket){
 
     
     socket.on('userdisconnect', function(data) {
-        console.log( JSON.stringify(data) +" Disconnect");
-        console.log( data.connectionid +" Disconnect");
-        io.sockets.emit( "userdisconnect" ,' has left')
+      
+        User.find({connectionId:data.connectionid}).remove().exec().then(result=>{
+            console.log( JSON.stringify(data) +" Disconnect");
+            console.log( data.connectionid +" Disconnect");
+            io.sockets.emit( "userdisconnect" ,' has left')
+        });
+       
     
     
     });
