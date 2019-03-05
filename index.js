@@ -24,8 +24,23 @@ io.on('connection',function(socket){
 
     socket.on('onconnect',function(data){
        /// console.log(data);    
+       const user = new User({
+        _id: new mongoose.Types.ObjectId(),
+        connectionId: socket.id,
+        handle:data.handle
+         });
+
+         user.save().then(result=>{
+            console.log(data.handle +"data Saved");
+            
+        }).catch(err=>{
+            console.log(data.handle +"data Not saved");
+        });
+       
+
         io.sockets.emit('onconnect',{
             connectionid:socket.id,
+            handle:data.handle,
             connected:true
         });
 
