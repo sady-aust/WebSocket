@@ -20,7 +20,7 @@ app.use(express.static('public'));
 var io = socket(server);
 io.on('connection',function(socket){
     console.log("Made socket connection ",socket.id);
-    ;
+    
 
     socket.on('onconnect',function(data){
         console.log(data);    
@@ -34,9 +34,9 @@ io.on('connection',function(socket){
     });
 
     
-    socket.on('disconnect', function() {
+    socket.on('disconnect', function(data) {
         console.log( 'user has left ')
-        io.sockets.emit( "disconnect" ,'user has left')
+        io.sockets.emit( "disconnect" ,data.handle+' has left')
     
     
     });
