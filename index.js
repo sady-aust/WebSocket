@@ -20,13 +20,13 @@ app.use(express.static('public'));
 var io = socket(server);
 io.on('connection',function(socket){
     console.log("Made socket connection ",socket.id);
-    io.sockets.emit({
-        socketid: socket.id
-    });
+    
 
     socket.on('onconnect',function(data){
         console.log(data);    
-        io.sockets.emit('onconnect',data.handle+" Connected!");
+        io.sockets.emit({
+            soocketid:socket.id
+        });
 
     });
 
