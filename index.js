@@ -38,7 +38,7 @@ io.on('connection',function(socket){
 
     
     socket.on('userdisconnect', function(data) {
-       // console.log( 'user has left ');
+        console.log( data.connectionid +" Disconnected");
         io.sockets.emit( "userdisconnect" ,' has left')
     
     
