@@ -26,7 +26,11 @@ io.on('connection',function(socket){
         console.log(data);    
         io.sockets.emit({
             soocketid:socket.id
+          
+            
         });
+
+        console.log("Sending socketid ",socket.id);
 
     });
 
