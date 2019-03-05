@@ -23,19 +23,19 @@ io.on('connection',function(socket){
     
 
     socket.on('onconnect',function(data){
-        console.log(data);    
+       /// console.log(data);    
         io.sockets.emit('onconnect',data.handle+" Connected!");
 
     });
 
     socket.on('chat',function(data){
-        console.log(data);    
+      //  console.log(data);    
         io.sockets.emit('chat',data);
     });
 
     
     socket.on('disconnect', function(data) {
-        console.log( 'user has left ');
+       // console.log( 'user has left ');
         io.sockets.emit( "disconnect" ,' has left')
     
     
