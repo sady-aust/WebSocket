@@ -24,7 +24,7 @@ io.on('connection',function(socket){
 
     socket.on('onconnect',function(data){
        /// console.log(data);    
-        io.sockets.emit('onconnect',data.handle+" Connected!");
+        io.sockets.emit('onconnect',socket.id);
 
     });
 
