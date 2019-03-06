@@ -1,6 +1,6 @@
 //Make Connection
-//var socket = io.connect('http://13.232.139.98:8084');
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('http://13.232.139.98:8084');
+//var socket = io.connect('http://localhost:3000');
 //query DOM
 var message = document.getElementById('message');
 var handle = document.getElementById('handle');
